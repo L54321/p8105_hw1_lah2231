@@ -12,3 +12,45 @@ ncol(penguins)
 
 The penguins dataset from the palmerpenguins package has `r ncol(penguins)` columns which are as follows: `r colnames(penguins)`. The different species of penguins the dataset looks at are: `r unique(penguins$species)`. They live in one of the following places or islands: `r unique(penguins$island)`. There are `r nrow(penguins)` rows. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
 
+
+
+```{r}
+library(ggplot2)
+first_plot <- ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point() + labs(title="Penguin flipper vs. Penguin bill", x="Bill lenght", y="Flipper length")
+print(first_plot)
+ggsave("first_plot.png", plot = first_plot)
+```
+
+
+```{r}
+library(tidyverse)
+
+data_frame1 <- data.frame(
+  Random_samples_normal_data = rnorm(10, mean = 0, sd = 1),
+  Character_vector = c ("c", "h", "a", "r", "a", "c", "t", "e", "r", "v"),
+  Factor_vector = c("low", "medium", "high", "low", "high", "low", "medium", "high", "low", "high")
+)
+
+data_frame1$Logical_vector_greater_0 <- data_frame1$Random_samples_normal_data > 0
+
+mean(data_frame1$Random_samples_normal_data)
+mean(data_frame1$Character_vector)
+mean(data_frame1$Factor_vector)
+mean(data_frame1$Logical_vector_greater)
+
+print(data_frame1)
+```
+
+random_sample 
+
+
+
+
+
+
+
+
+
+
+
+
