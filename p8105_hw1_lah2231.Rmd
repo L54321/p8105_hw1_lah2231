@@ -28,17 +28,26 @@ library(tidyverse)
 data_frame1 <- data.frame(
   Random_samples_normal_data = rnorm(10, mean = 0, sd = 1),
   Character_vector = c ("c", "h", "a", "r", "a", "c", "t", "e", "r", "v"),
-  Factor_vector = c("low", "medium", "high", "low", "high", "low", "medium", "high", "low", "high")
+  Factor_vector = factor(c("low", "medium", "high", "low", "high", "low", "medium", "high", "low", "high"))
 )
 
 data_frame1$Logical_vector_greater_0 <- data_frame1$Random_samples_normal_data > 0
 
-mean(data_frame1$Random_samples_normal_data)
-mean(data_frame1$Character_vector)
-mean(data_frame1$Factor_vector)
-mean(data_frame1$Logical_vector_greater)
+mean_random <- mean(data_frame1$Random_samples_normal_data)
+#mean(data_frame1$Character_vector)
+#mean(data_frame1$Factor_vector)
+mean_logical <- mean(data_frame1$Logical_vector_greater_0)
 
 print(data_frame1)
+print(mean_random)
+#Converting the character, factor and logical data to numeric with as.numeric. This is not possible for character variables. Regarding logical values True becomes 1 and False becomes 0 and regarding factors the levels become numeric codes.
+
+logical <- as.numeric(data_frame1$Logical_vector_greater_0)
+#as.numeric(data_frame1$Character_vector).  # not possiböe
+numeric <- as.numeric(data_frame1$Factor_vector)
+
+print(logical)
+print(numeric)
 ```
 
 random_sample 
