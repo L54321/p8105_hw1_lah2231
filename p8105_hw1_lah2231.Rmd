@@ -1,2 +1,14 @@
 # p8105_hw1_lah2231
-Homework I
+## Homework I
+
+install.packages("palmerpenguins")
+
+```{r, echo = FALSE}
+data("penguins", package = "palmerpenguins")
+#View(penguins)
+head(penguins)
+ncol(penguins)
+```
+
+The penguins dataset from the palmerpenguins package has `r ncol(penguins)` columns which are as follows: `r colnames(penguins)`. The different species of penguins the dataset looks at are: `r unique(penguins$species)`. They live in one of the following places or islands: `r unique(penguins$island)`. There are `r nrow(penguins)` rows. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)` mm.
+
